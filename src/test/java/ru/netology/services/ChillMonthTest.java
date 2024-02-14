@@ -2,15 +2,15 @@ package ru.netology.services;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 
 public class ChillMonthTest {
 
     @ParameterizedTest
-    @CsvSource({
-            "10000,3000,20000",
-            "100000, 60000, 150000"
-    })
+    @CsvFileSource(files="src/test/resources/calculations.csv")
+
+
     public void testFirstCombinedOption(int income, int expenses, int threshold) {
         ChillMonth service = new ChillMonth();
         int ChillMonth = service.calculate(income, expenses, threshold);
